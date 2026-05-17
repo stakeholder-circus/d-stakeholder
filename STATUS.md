@@ -1,24 +1,27 @@
 # d-stakeholder Status
 
-- Role: selected next-20 local-only scaffold for D
-- Parity class: full-parity
-- State: scaffold-ready-local-only
-- Rewrite completeness: 12%
-- Functionality completeness: 3%
+Last updated: 2026-05-15 CEST
+
+- Role: Tranche D deterministic-first D rewrite
+- Parity class: normalized-equivalent deterministic target
+- State: native-runtime-implemented-local-only
+- Rewrite completeness: 52%
+- Functionality completeness: 44%
 - Branch: `main`
 - Origin: `git@github.com:stakeholder-circus/d-stakeholder.git`
 - Upstream: `https://github.com/giacomo-b/rust-stakeholder`
 
+## Implemented
+- D/Dub CLI with `--list-values`, `--focus-family`, `--output-format text|json`, `--seed`, and explicit `--experimental-provider` fail-fast.
+- Dedicated deterministic renderers for classic-six and modern-core families.
+- Grouped deterministic fallback for later families.
+- Native validation script and D unit tests.
+
 ## Blockers
-- Implementation has not started.
-- Full live-provider/runtime support is deferred to the second-pass provider rollout wave.
-- Publication is blocked until the publication/governance wave completes and remote access is available.
+- Full live-provider runtime is intentionally deferred.
+- Later family depth remains grouped fallback until a later tranche.
+- Publication remains blocked until governance and remote access are approved.
 
 ## Next
-- Keep the scaffold baseline valid.
-- Add deterministic `classic-six + modern-core` implementation in the assigned tranche.
-- Keep grouped fallback for later families until the second wave.
-
-## Canonical references
-- `/Users/davidsupan/shareholder/stakeholder-core/docs/program/index.md`
-- `/Users/davidsupan/shareholder/stakeholder-core/docs/program/next-20-wave.md`
+- Expand later family renderers out of grouped fallback.
+- Add cross-language fixture comparison when the workspace contract is ready for D.

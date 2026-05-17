@@ -1,5 +1,5 @@
 {
-  description = "d-stakeholder scaffold";
+  description = "d-stakeholder deterministic-first D rewrite";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   outputs = { self, nixpkgs }:
     let
@@ -11,12 +11,18 @@
         in {
           check = pkgs.writeShellApplication {
             name = "check";
-            runtimeInputs = [ pkgs.python3 ];
+            runtimeInputs = [ pkgs.python3 pkgs.ldc pkgs.dub ];
             text = ''
               python3 scripts/validate_scaffold.py
+              dub test --compiler=ldc2
             '';
           };
           default = self.packages.${system}.check;
+        });
+      devShells = forAllSystems (system:
+        let pkgs = import nixpkgs { inherit system; };
+        in {
+          default = pkgs.mkShell { packages = [ pkgs.ldc pkgs.dub pkgs.python3 ]; };
         });
       apps = forAllSystems (system: {
         check = { type = "app"; program = "${self.packages.${system}.check}/bin/check"; };

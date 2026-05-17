@@ -1,5 +1,6 @@
-# Rust Traceability
+# D Traceability
 
-- Rust is the source-of-truth side of the rewrite program.
-- Behavioral changes here must be mirrored into `stakeholder-core` traceability, docs, and downstream packets.
-- Downstream repos should cite Rust file paths and the corresponding `stakeholder-core` rows when porting behavior.
+- D is a deterministic-first follower of the Rust source baseline.
+- Java depth-anchor docs and `stakeholder-core` packets were used to confirm the first follower shape.
+- Every significant transferred behavior is documented in `first-push-families.md`.
+- Missing or deferred behavior belongs in `GAPS.md` with fail-fast runtime handling where applicable.

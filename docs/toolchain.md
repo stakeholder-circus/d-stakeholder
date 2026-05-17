@@ -1,16 +1,18 @@
-  # D Toolchain
+# D Toolchain
 
-  - State: scaffold-only next-20 prep
-  - Toolchain source: `brew`
+- State: Tranche D native runtime
+- Compiler: `ldc2`
+- Build tool: `dub`
+- Recommended local install: `brew install ldc dub`
 
-  ## Planned commands after promotion
-    - `brew install ldc dub`
+## Native commands
 - `ldc2 --version`
 - `dub --version`
+- `python3 scripts/validate_scaffold.py`
+- `dub build --compiler=ldc2`
+- `dub test --compiler=ldc2`
+- `dub run --compiler=ldc2 -- --list-values`
 
-  ## Scaffold-time checks
-  - `python3 scripts/validate_scaffold.py`
-  - `/nix/var/nix/profiles/default/bin/nix --extra-experimental-features 'nix-command flakes' flake lock`
-
-  ## Current limitation
-  - Requires Brew install of ldc and dub before implementation.
+## Nix
+- `nix develop`
+- `nix run .#check`

@@ -1,15 +1,15 @@
 # D Parity
 
-- Role: local-only full-parity target in the next-20 wave
-- Parity class: full-parity
+- Role: local-only Tranche D deterministic-first target
+- Parity class: normalized-equivalent for deterministic JSON; pending for live providers
 
 ## Review model
-- Rust remains the canonical source-of-truth.
-- `stakeholder-core` remains the behavioral contract.
-- This repo is deterministic-first for the initial tranche.
+- Rust remains the source audit anchor.
+- Java depth-anchor behavior was reviewed as the first substantial follower shape.
+- `stakeholder-core` remains the behavioral contract and fixture source.
 
-## Promotion prerequisites
-- Deterministic `classic-six + modern-core` implemented.
-- Native and Docker validation green.
-- `--list-values`, deterministic same-seed JSON, and experimental-provider fail-fast present.
-- Publication/governance wave complete and remote access available.
+## Current parity surface
+- CLI flags and defaults mirror the deterministic Rust contract where practical.
+- JSON output uses stable event ordering, stable synthetic timestamps, and same-seed family selection.
+- Terminal styling is intentionally normalized away.
+- Experimental provider activation fails fast and does not affect deterministic output.

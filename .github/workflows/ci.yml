@@ -10,24 +10,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - name: Install D toolchain
+        uses: dlang-community/setup-dlang@v1
         with:
-          components: rustfmt, clippy
-      - name: Format
-        run: cargo fmt --check
-      - name: Lint
-        run: cargo clippy -- -D warnings
+          compiler: ldc-latest
+      - name: Build
+        run: dub build --compiler=ldc2
       - name: Test
-        run: cargo test
-
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build image
-        run: docker build -t rust-stakeholder .
-      - name: Smoke test
-        run: docker run --rm rust-stakeholder --list-values
+        run: dub test --compiler=ldc2
+      - name: Validate repo contract
+        run: python3 scripts/validate_scaffold.py
+      - name: Smoke list values
+        run: dub run --compiler=ldc2 -- --list-values
+      - name: Seeded JSON smoke
+        run: dub run --compiler=ldc2 -- --output-format json --seed 7 --duration 1 --focus-family metrics

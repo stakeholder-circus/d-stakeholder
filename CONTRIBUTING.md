@@ -1,19 +1,17 @@
-# Contributing to rust-stakeholder
+# Contributing to d-stakeholder
 
 ## Rules
-- Treat Rust as the source-of-truth baseline for downstream ports.
+- Track the Rust source baseline and `stakeholder-core` contract.
 - Use Conventional Commits.
-- Do not land silent behavioral changes; update `stakeholder-core` traceability and docs in the same tranche.
-- Keep deterministic seeded behavior stable unless the change is explicitly documented as a baseline evolution.
+- Do not hide missing parity; add a feature-level `GAPS.md` entry.
+- Keep deterministic seeded JSON stable unless a baseline evolution explicitly changes it.
 
 ## Local workflow
-- `cargo fmt`
-- `cargo clippy -- -D warnings`
-- `cargo test`
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
+- `python3 scripts/validate_scaffold.py`
+- `dub build --compiler=ldc2`
+- `dub test --compiler=ldc2`
+- `dub run --compiler=ldc2 -- --list-values`
 
 ## Change discipline
-- Generator-family additions must update docs, examples, and fixtures.
-- Experimental provider work must stay clearly separated from deterministic parity paths.
-- Prefer additive event-schema evolution over breaking changes.
+- Generator-family additions must update docs, traceability, and native validation.
+- Experimental provider work must remain separated from deterministic parity paths.

@@ -1,9 +1,9 @@
-# Rust Docker
+# D Docker
 
 ## Build and test
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
+- `docker build -t d-stakeholder .`
+- `docker run --rm d-stakeholder --list-values`
 
 ## Rationale
-- The image compiles and tests the Rust baseline before packaging the runtime binary.
-- Docker is the reproducible Linux gate; host and CI matrices still cover native OS behavior.
+- The image builds the D runtime with `ldc2` and packages the CLI binary.
+- Docker is not part of Tranche D native validation on this workstation.

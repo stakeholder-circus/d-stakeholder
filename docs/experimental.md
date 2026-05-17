@@ -1,5 +1,5 @@
-# Rust Experimental Surface
+# D Experimental Surface
 
-- Live-provider concepts are modeled separately from the deterministic baseline.
-- OpenAI-compatible APIs, Anthropic APIs, and consumer-account adapters remain documentation and interface work until explicitly wired into a guarded runtime path.
-- Experimental additions must not change seeded parity fixtures by default.
+- Experimental providers are not implemented in Tranche D.
+- `--experimental-provider <name>` exits non-zero with gap id `d.experimental-provider-fail-fast`.
+- Deterministic CLI, text output, and normalized JSON output do not consult provider configuration.

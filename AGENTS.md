@@ -1,14 +1,15 @@
-    # d-stakeholder AGENTS
+# d-stakeholder AGENTS
 
-    - Preserve imported Rust history and provenance.
-    - Queue state: `scaffold-only` in the next-20 autonomous sprint.
-    - Origin: `git@github.com:stakeholder-circus/d-stakeholder.git`
-    - Upstream: `https://github.com/giacomo-b/rust-stakeholder`
-    - Deterministic normalized JSON is the first implementation target.
-    - Missing behavior must fail fast and be recorded in `GAPS.md`.
-    - No placeholder runtime behavior once implementation starts.
+- Preserve imported Rust history and provenance.
+- Origin: `git@github.com:stakeholder-circus/d-stakeholder.git`
+- Upstream: `https://github.com/giacomo-b/rust-stakeholder`
+- Deterministic normalized JSON is the first implementation target.
+- Missing behavior must fail fast and be recorded in `GAPS.md`.
+- Use `ldc2` and `dub` for native work.
+- Do not attach upstream tracking or publish without explicit instruction.
 
-    ## Planned promotion commands
-    - `brew install ldc dub`
-- `ldc2 --version`
-- `dub --version`
+## Native commands
+- `python3 scripts/validate_scaffold.py`
+- `dub build --compiler=ldc2`
+- `dub test --compiler=ldc2`
+- `dub run --compiler=ldc2 -- --list-values`

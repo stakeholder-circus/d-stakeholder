@@ -1,0 +1,10 @@
+{
+  "authors": ["giacomo-b", "stakeholder-circus contributors"],
+  "copyright": "Copyright (c) 2025 giacomo-b",
+  "description": "D deterministic-first stakeholder CLI rewrite",
+  "license": "MIT",
+  "name": "d-stakeholder",
+  "targetType": "executable",
+  "targetPath": "bin",
+  "sourcePaths": ["source"]
+}

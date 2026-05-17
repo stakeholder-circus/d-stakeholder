@@ -1,16 +1,21 @@
-# Rust Example Outputs
+# D Example Outputs
 
-## Security
+## Enumerate contract values
 ```bash
-cargo run -- --dev-type security --jargon high --complexity extreme --alerts --seed 42
+dub run --compiler=ldc2 -- --list-values
 ```
 
-## Blockchain
+## Focused JSON run
 ```bash
-cargo run -- --dev-type blockchain --framework "rollup-mcp-gateway" --output-format json --seed 7
+dub run --compiler=ldc2 -- --output-format json --seed 7 --duration 1 --focus-family metrics
 ```
 
-## Healthcare + charging + quantum crossover
+## Security text run
 ```bash
-cargo run -- --project "hospital-ocpp-quantum-control" --framework "mcp grpc" --jargon extreme --team --trace --seed 11
+dub run --compiler=ldc2 -- --dev-type security --jargon high --complexity extreme --alerts --seed 42
+```
+
+## Experimental fail-fast
+```bash
+dub run --compiler=ldc2 -- --experimental-provider local-demo
 ```

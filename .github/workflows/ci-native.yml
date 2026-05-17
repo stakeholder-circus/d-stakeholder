@@ -5,11 +5,15 @@ on:
   pull_request:
 
 jobs:
-  scaffold-check:
+  d-native-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - run: python3 scripts/validate_scaffold.py
+      - run: dub test --compiler=ldc2

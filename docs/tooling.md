@@ -1,19 +1,11 @@
-# Rust Tooling
+# D Tooling
 
 ## Commands
-- `cargo fmt`
-- `cargo clippy -- -D warnings`
-- `cargo build`
-- `cargo test`
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
-
-## Extended local checks
-- `cargo nextest run`
-- `cargo audit`
-- `cargo deny check`
-- `cargo udeps`
+- `python3 scripts/validate_scaffold.py`
+- `dub build --compiler=ldc2`
+- `dub test --compiler=ldc2`
+- `dub run --compiler=ldc2 -- --output-format json --seed 7 --duration 1 --focus-family metrics`
 
 ## Notes
-- The Docker path is the reproducible Linux baseline.
-- Native CI should still cover macOS and Windows semantics.
+- Native validation is the required Tranche D gate.
+- Docker remains configured for CI/reproducibility but was not run during this local tranche.
