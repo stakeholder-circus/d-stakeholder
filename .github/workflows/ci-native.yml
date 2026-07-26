@@ -12,7 +12,7 @@ jobs:
       - uses: dlang-community/setup-dlang@v1
         with:
           compiler: ldc-latest
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       - run: python3 scripts/validate_scaffold.py
