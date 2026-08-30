@@ -1,4 +1,4 @@
-FROM ubuntu:24.04 AS build
+FROM ubuntu:26.04 AS build
 RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential ca-certificates dub ldc \
     && rm -rf /var/lib/apt/lists/*
@@ -7,7 +7,7 @@ COPY dub.json ./
 COPY source ./source
 RUN dub build --compiler=ldc2 --build=release
 
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 LABEL org.opencontainers.image.title="d-stakeholder"
 LABEL org.opencontainers.image.description="D deterministic-first stakeholder CLI rewrite"
 RUN apt-get update \
