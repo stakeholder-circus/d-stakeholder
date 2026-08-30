@@ -4,17 +4,23 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   native:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Install D toolchain
-        uses: dlang-community/setup-dlang@v1
+        uses: dlang-community/setup-dlang@0a7469b93f791d83f30932c6fd105796c6966e20 # v2.0.0
         with:
           compiler: ldc-latest
       - name: Build
